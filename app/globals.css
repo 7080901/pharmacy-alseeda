@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* الوضع الفاتح (Light Mode) */
+  :root {
+    --ink: 18 33 27;
+    --mist: 238 243 240;
+    --line: 214 224 218;
+    --card-bg: 255 255 255;
+    
+    --green: 11 107 69;
+    --green-deep: 8 79 52;
+    --green-light: 122 199 163;
+    --amber: 184 118 26;
+    --amber-deep: 122 76 14;
+  }
+
+  /* الوضع الداكن (Dark Mode) */
+  .dark {
+    --ink: 240 245 242;       /* نصوص فاتحة وواضحة جداً */
+    --mist: 15 23 18;         /* خلفية زيتية داكنة */
+    --line: 35 52 44;         /* حدود ناعمة */
+    --card-bg: 20 32 26;      /* خلفية كروت صلبة */
+    
+    --green: 34 197 94;       /* أخضر زاهي للوضع الداكن */
+    --green-deep: 21 128 61;
+    --green-light: 134 239 172;
+    --amber: 245 158 11;
+    --amber-deep: 180 83 9;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-mist font-sans text-ink antialiased transition-colors duration-300;
+    text-rendering: optimizeLegibility;
+  }
+
+  [id] {
+    scroll-margin-top: 88px;
+  }
+
+  /* إلغاء أيقونة المسح التلقائية في المتصفح منعاً لتكرار الأيقونات */
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-decoration,
+  input[type="search"]::-webkit-search-results-button,
+  input[type="search"]::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+}
