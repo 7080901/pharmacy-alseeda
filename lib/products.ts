@@ -124,6 +124,17 @@ export const BEST_SELLING: typeof NEWEST = [
   { id: "b3", name: "جهاز قياس ضغط الدم المنزلي", price: 12500, image: "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=120&q=80&auto=format&fit=crop" },
 ] as const
 
+export const HEALTH_CONCERN_PRODUCTS: Record<string, string[]> = {
+  "المعدة": ["p1", "p4", "p13", "p17", "p27"],
+  "العظام": ["p2", "p13", "p14", "p27", "p29"],
+  "الأسنان": ["p4", "p17", "p18", "p33", "p35"],
+  "الجهاز التنفسي": ["p4", "p16", "p18", "p28", "p31"],
+  "القلب": ["p2", "p13", "p14", "p15", "p29"],
+  "البشرة": ["p5", "p7", "p8", "p19", "p20"],
+  "السكري": ["p2", "p3", "p13", "p15", "p27"],
+  "الكلى": ["p2", "p13", "p14", "p27", "p29"],
+}
+
 export const HEALTH_CONCERNS = [
   { title: "المعدة", icon: "Salad" },
   { title: "العظام", icon: "Bone" },

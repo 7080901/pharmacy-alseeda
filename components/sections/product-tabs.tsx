@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { useEffect, useState } from "react"
 import { Check, ShoppingCart } from "lucide-react"
-import { PRODUCTS, type Product } from "@/lib/products"
+import { HEALTH_CONCERN_PRODUCTS, PRODUCTS, type Product } from "@/lib/products"
 import { useCart } from "@/lib/cart"
 import { Section, SectionHead } from "@/components/ui/section"
 import { Reveal } from "@/components/ui/reveal"
@@ -21,12 +21,20 @@ const CATEGORY_ALIASES: Record<string, string> = {}
 export function ProductTabs() {
   const [tab, setTab] = useState<(typeof TABS)[number]>(TABS[0])
   const [category, setCategory] = useState<(typeof CATEGORY_FILTERS)[number]>(CATEGORY_FILTERS[0])
+  const [concern, setConcern] = useState<string | null>(null)
 
   useEffect(() => {
     const handleCategory = (event: Event) => {
-      const requested = (event as CustomEvent<string>).detail
-      const next = CATEGORY_ALIASES[requested] ?? requested
+      const detail = (event as CustomEvent<string | { kind: "concern"; value: string }>).detail
+      if (typeof detail !== "string") {
+        setConcern(detail.value)
+        setCategory(CATEGORY_FILTERS[0])
+        setTab(TABS[0])
+        return
+      }
+      const next = CATEGORY_ALIASES[detail] ?? detail
       if (CATEGORY_FILTERS.includes(next as (typeof CATEGORY_FILTERS)[number])) {
+        setConcern(null)
         setCategory(next as (typeof CATEGORY_FILTERS)[number])
         setTab(TABS[0])
       }
@@ -36,23 +44,24 @@ export function ProductTabs() {
   }, [])
 
   const filteredProducts = PRODUCTS.filter((p) => {
+    const matchesConcern = !concern || HEALTH_CONCERN_PRODUCTS[concern]?.includes(p.id)
     const matchesCategory = category === "الكل" || p.category === category
     const matchesTab = tab === "الأكثر مبيعًا" ? p.badge === "الأكثر مبيعًا" : tab === "عروض وخصومات" ? p.badge === "خصم" : true
-    return matchesCategory && matchesTab
+    return matchesConcern && matchesCategory && matchesTab
   })
-  const visible = category === "الكل" && tab === "الأهم" ? filteredProducts.slice(0, 6) : filteredProducts
+  const visible = !concern && category === "الكل" && tab === "الأهم" ? filteredProducts.slice(0, 6) : filteredProducts
 
   return (
     <Section id="products" tone="white">
       <div className="flex flex-wrap items-end justify-between gap-6">
-        <SectionHead title="منتجات الرعاية الصحية" />
+        <SectionHead title={concern ? `منتجات مناسبة لـ ${concern}` : "منتجات الرعاية الصحية"} />
 
         <div className="flex max-w-full flex-wrap gap-2">
           {CATEGORY_FILTERS.map((item) => (
             <button
               key={item}
               type="button"
-              onClick={() => { setCategory(item); setTab(TABS[0]) }}
+              onClick={() => { setConcern(null); setCategory(item); setTab(TABS[0]) }}
               className={cn("rounded-full border px-3 py-2 text-xs transition-colors", category === item ? "border-green bg-green text-white" : "border-line bg-mist text-ink/65 hover:border-green hover:text-green")}
             >
               {item}
