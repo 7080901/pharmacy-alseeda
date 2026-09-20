@@ -35,11 +35,12 @@ export function ProductTabs() {
     return () => window.removeEventListener("pharmacy:category", handleCategory)
   }, [])
 
-  const visible = PRODUCTS.filter((p) => {
+  const filteredProducts = PRODUCTS.filter((p) => {
     const matchesCategory = category === "الكل" || p.category === category
     const matchesTab = tab === "الأكثر مبيعًا" ? p.badge === "الأكثر مبيعًا" : tab === "عروض وخصومات" ? p.badge === "خصم" : true
     return matchesCategory && matchesTab
   })
+  const visible = category === "الكل" && tab === "الأهم" ? filteredProducts.slice(0, 6) : filteredProducts
 
   return (
     <Section id="products" tone="white">

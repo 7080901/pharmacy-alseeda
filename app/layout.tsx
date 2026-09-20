@@ -54,7 +54,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ar" dir="rtl" className={`${body.variable} ${display.variable}`}>
+    <html lang="ar" dir="rtl" suppressHydrationWarning className={`${body.variable} ${display.variable}`}>
       <body>
         <ThemeProvider>
         <CartProvider>{children}</CartProvider>
