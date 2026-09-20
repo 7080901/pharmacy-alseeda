@@ -37,7 +37,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "p2",
     name: "فيتامين د 1000 وحدة — 30 كبسولة",
-    category: "فيتامينات",
+    category: "الفيتامينات",
     price: 1750,
     badge: "الأكثر مبيعًا",
     image: "https://images.unsplash.com/photo-1550572017-edd951b55104?w=300&q=80&auto=format&fit=crop",
@@ -45,7 +45,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "p3",
     name: "جهاز قياس السكر مع 25 شريط",
-    category: "مستلزمات طبية",
+    category: "المستلزمات الطبية",
     price: 8500,
     oldPrice: 9800,
     badge: "خصم",
@@ -87,6 +87,23 @@ export const PRODUCTS: Product[] = [
   { id: "p16", name: "كمامات طبية — 50 قطعة", category: "المستلزمات الطبية", price: 1500, image: "https://images.unsplash.com/photo-1584634731339-252c581abfc5?w=300&q=80&auto=format&fit=crop" },
   { id: "p17", name: "غسول فم بالنعناع 500 مل", category: "العناية الشخصية", price: 1700, image: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=300&q=80&auto=format&fit=crop" },
   { id: "p18", name: "مزيل عرق طبي للبشرة الحساسة", category: "العناية الشخصية", price: 2100, badge: "خصم", image: "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=300&q=80&auto=format&fit=crop" },
+  { id: "p19", name: "كريم ليلي مجدد للبشرة", category: "العناية بالبشرة", price: 4600, image: "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=300&q=80&auto=format&fit=crop" },
+  { id: "p20", name: "قناع طين لتنقية البشرة", category: "العناية بالبشرة", price: 2700, image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=300&q=80&auto=format&fit=crop" },
+  { id: "p21", name: "زيت أركان مغذي للشعر", category: "العناية بالشعر", price: 3300, image: "https://images.unsplash.com/photo-1522338242992-e1a54906a8da?w=300&q=80&auto=format&fit=crop" },
+  { id: "p22", name: "ماسك إصلاح الشعر التالف", category: "العناية بالشعر", price: 2800, badge: "خصم", image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=300&q=80&auto=format&fit=crop" },
+  { id: "p23", name: "فرشاة شعر للأطفال", category: "العناية بالشعر", price: 1100, image: "https://images.unsplash.com/photo-1527799820374-dcf8f2d1f8e1?w=300&q=80&auto=format&fit=crop" },
+  { id: "p24", name: "زجاجة رضاعة مضادة للمغص", category: "الأم والطفل", price: 2300, image: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=300&q=80&auto=format&fit=crop" },
+  { id: "p25", name: "شامبو أطفال لطيف 200 مل", category: "الأم والطفل", price: 1600, image: "https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?w=300&q=80&auto=format&fit=crop" },
+  { id: "p26", name: "مناديل قطنية للمواليد", category: "الأم والطفل", price: 900, badge: "جديد", image: "https://images.unsplash.com/photo-1544126592-807daa215a2a?w=300&q=80&auto=format&fit=crop" },
+  { id: "p27", name: "مكمل المغنيسيوم 60 قرص", category: "الفيتامينات", price: 3200, image: "https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=300&q=80&auto=format&fit=crop" },
+  { id: "p28", name: "فيتامين ب المركب", category: "الفيتامينات", price: 2900, image: "https://images.unsplash.com/photo-1559757175-7cb057fba93c?w=300&q=80&auto=format&fit=crop" },
+  { id: "p29", name: "مكمل الحديد 30 كبسولة", category: "الفيتامينات", price: 2500, badge: "الأكثر مبيعًا", image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&q=80&auto=format&fit=crop" },
+  { id: "p30", name: "ميزان إلكتروني للوزن", category: "المستلزمات الطبية", price: 7800, image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=300&q=80&auto=format&fit=crop" },
+  { id: "p31", name: "علبة إسعافات أولية منزلية", category: "المستلزمات الطبية", price: 6500, badge: "جديد", image: "https://images.unsplash.com/photo-1603398938378-e54eab446dde?w=300&q=80&auto=format&fit=crop" },
+  { id: "p32", name: "جهاز قياس الحرارة الرقمي", category: "المستلزمات الطبية", price: 1900, image: "https://images.unsplash.com/photo-1588776814546-daab30f310ce?w=300&q=80&auto=format&fit=crop" },
+  { id: "p33", name: "كريم يدين مرطب", category: "العناية الشخصية", price: 1400, image: "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=300&q=80&auto=format&fit=crop" },
+  { id: "p34", name: "غسول جسم منعش", category: "العناية الشخصية", price: 2200, image: "https://images.unsplash.com/photo-1607006344380-b6775a0824a7?w=300&q=80&auto=format&fit=crop" },
+  { id: "p35", name: "معجون أسنان للحساسية", category: "العناية الشخصية", price: 1300, badge: "الأكثر مبيعًا", image: "https://images.unsplash.com/photo-1559591937-e2e8c0f3bcd8?w=300&q=80&auto=format&fit=crop" },
 ] as const
 
 export const NEWEST: Pick<Product, "id" | "name" | "price" | "image">[] = [
