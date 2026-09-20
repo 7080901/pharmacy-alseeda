@@ -44,6 +44,14 @@
     scroll-margin-top: 88px;
   }
 
+  .dark .bg-white { background-color: rgb(var(--card-bg)); }
+  .dark .bg-mist { background-color: rgb(var(--mist)); }
+  .dark .border-line { border-color: rgb(var(--line)); }
+  .dark .text-ink\/70 { color: rgb(var(--ink) / 0.7); }
+  .dark .text-ink\/75 { color: rgb(var(--ink) / 0.75); }
+  .dark .text-ink\/50 { color: rgb(var(--ink) / 0.5); }
+  .dark .text-ink\/40 { color: rgb(var(--ink) / 0.4); }
+
   /* إلغاء أيقونة المسح التلقائية في المتصفح منعاً لتكرار الأيقونات */
   input[type="search"]::-webkit-search-cancel-button,
   input[type="search"]::-webkit-search-decoration,

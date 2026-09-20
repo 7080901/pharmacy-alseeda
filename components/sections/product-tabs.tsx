@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Check, ShoppingCart } from "lucide-react"
 import { PRODUCTS, type Product } from "@/lib/products"
 import { useCart } from "@/lib/cart"
@@ -10,6 +10,12 @@ import { Reveal } from "@/components/ui/reveal"
 import { cn } from "@/lib/utils"
 
 const TABS = ["الأهم", "الأكثر مبيعًا", "عروض وخصومات"] as const
+const CATEGORY_FILTERS = ["الكل", "العناية بالبشرة", "الأم والطفل", "الفيتامينات", "المستلزمات الطبية", "مسكنات", "نزلات البرد"] as const
+
+const CATEGORY_ALIASES: Record<string, string> = {
+  "العناية بالشعر": "العناية بالبشرة",
+  "العناية الشخصية": "العناية بالبشرة",
+}
 
 // ============================================================
 // شبكة منتجات بتبويبات، تحاكي قسم "منتجات الرعاية الصحية" في
@@ -17,17 +23,44 @@ const TABS = ["الأهم", "الأكثر مبيعًا", "عروض وخصوما�
 // ============================================================
 export function ProductTabs() {
   const [tab, setTab] = useState<(typeof TABS)[number]>(TABS[0])
+  const [category, setCategory] = useState<(typeof CATEGORY_FILTERS)[number]>(CATEGORY_FILTERS[0])
+
+  useEffect(() => {
+    const handleCategory = (event: Event) => {
+      const requested = (event as CustomEvent<string>).detail
+      const next = CATEGORY_ALIASES[requested] ?? requested
+      if (CATEGORY_FILTERS.includes(next as (typeof CATEGORY_FILTERS)[number])) {
+        setCategory(next as (typeof CATEGORY_FILTERS)[number])
+        setTab(TABS[0])
+      }
+    }
+    window.addEventListener("pharmacy:category", handleCategory)
+    return () => window.removeEventListener("pharmacy:category", handleCategory)
+  }, [])
 
   const visible = PRODUCTS.filter((p) => {
-    if (tab === "الأكثر مبيعًا") return p.badge === "الأكثر مبيعًا"
-    if (tab === "عروض وخصومات") return p.badge === "خصم"
-    return true
+    const matchesCategory = category === "الكل" || p.category === category
+    const matchesTab = tab === "الأكثر مبيعًا" ? p.badge === "الأكثر مبيعًا" : tab === "عروض وخصومات" ? p.badge === "خصم" : true
+    return matchesCategory && matchesTab
   })
 
   return (
     <Section id="products" tone="white">
       <div className="flex flex-wrap items-end justify-between gap-6">
         <SectionHead title="منتجات الرعاية الصحية" />
+
+        <div className="flex max-w-full flex-wrap gap-2">
+          {CATEGORY_FILTERS.map((item) => (
+            <button
+              key={item}
+              type="button"
+              onClick={() => { setCategory(item); setTab(TABS[0]) }}
+              className={cn("rounded-full border px-3 py-2 text-xs transition-colors", category === item ? "border-green bg-green text-white" : "border-line bg-mist text-ink/65 hover:border-green hover:text-green")}
+            >
+              {item}
+            </button>
+          ))}
+        </div>
 
         <div className="flex gap-1 rounded-full border border-line bg-mist p-1">
           {TABS.map((t) => (
@@ -53,6 +86,9 @@ export function ProductTabs() {
           </Reveal>
         ))}
       </div>
+      {visible.length === 0 && (
+        <p className="mt-10 rounded-2xl border border-dashed border-line px-6 py-10 text-center text-sm text-ink/60">لا توجد منتجات متاحة في هذا القسم حاليًا.</p>
+      )}
     </Section>
   )
 }

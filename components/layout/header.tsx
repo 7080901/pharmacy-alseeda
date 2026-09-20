@@ -95,7 +95,7 @@ export function Header() {
     if (!normalizedQuery) return []
 
     return PRODUCTS.filter((product) =>
-      normalizeArabic(product.name).includes(normalizedQuery)
+      normalizeArabic(`${product.name} ${product.category}`).includes(normalizedQuery)
     ).slice(0, MAX_SEARCH_RESULTS)
   }, [query])
 
@@ -225,8 +225,10 @@ export function Header() {
 
             {/* زر السلة */}
             <a
-              href="#products"
-              aria-label="السلة"
+              href={SITE.whatsappHref}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="السلة وإرسال الطلب"
               className={cn(ICON_BUTTON_CLASS, "relative")}
             >
               <ShoppingCart aria-hidden="true" className="size-5" strokeWidth={1.75} />

@@ -1,3 +1,5 @@
+"use client"
+
 import {
   Activity, Bone, Droplet, HeartPulse, Salad, Smile, Sparkles, Wind, type LucideIcon,
 } from "lucide-react"
@@ -21,6 +23,7 @@ export function HealthConcerns() {
             <Reveal key={c.title} delay={i * 50}>
               <a
                 href="#products"
+                onClick={() => window.dispatchEvent(new CustomEvent("pharmacy:category", { detail: c.title === "البشرة" ? "العناية بالبشرة" : c.title === "السكري" ? "فيتامينات" : "الكل" }))}
                 className="group flex items-center gap-3 rounded-xl border border-line px-4 py-3.5 transition-colors duration-300 hover:border-green/40 hover:bg-green/5"
               >
                 <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-mist text-green">

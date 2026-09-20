@@ -1,3 +1,5 @@
+"use client"
+
 import { Baby, Droplet, HeartPulse, Pill, Sparkles, Stethoscope, type LucideIcon } from "lucide-react"
 import { SHOP_CATEGORIES } from "@/lib/products"
 import { Section, SectionHead } from "@/components/ui/section"
@@ -17,6 +19,7 @@ export function ShopCategories() {
             <Reveal key={cat.title} delay={i * 60}>
               <a
                 href="#products"
+                onClick={() => window.dispatchEvent(new CustomEvent("pharmacy:category", { detail: cat.title }))}
                 className="group flex flex-col items-center gap-3 text-center"
               >
                 <span className="flex size-20 items-center justify-center rounded-full border border-line bg-mist transition-colors duration-300 group-hover:border-green group-hover:bg-green/10">
