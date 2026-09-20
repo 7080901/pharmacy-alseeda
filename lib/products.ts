@@ -75,6 +75,18 @@ export const PRODUCTS: Product[] = [
     badge: "خصم",
     image: "https://images.unsplash.com/photo-1584362917165-526a968579e8?w=300&q=80&auto=format&fit=crop",
   },
+  { id: "p7", name: "سيروم حمض الهيالورونيك 30 مل", category: "العناية بالبشرة", price: 4200, badge: "الأكثر مبيعًا", image: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=300&q=80&auto=format&fit=crop" },
+  { id: "p8", name: "واقي شمس ملون SPF 50", category: "العناية بالبشرة", price: 3800, image: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=300&q=80&auto=format&fit=crop" },
+  { id: "p9", name: "شامبو ضد تساقط الشعر 400 مل", category: "العناية بالشعر", price: 2900, badge: "جديد", image: "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=300&q=80&auto=format&fit=crop" },
+  { id: "p10", name: "بلسم مغذي للشعر الجاف", category: "العناية بالشعر", price: 2400, image: "https://images.unsplash.com/photo-1527799820374-dcf8f2d1f8e1?w=300&q=80&auto=format&fit=crop" },
+  { id: "p11", name: "مناديل مبللة للأطفال — 72 قطعة", category: "الأم والطفل", price: 1200, image: "https://images.unsplash.com/photo-1519689680058-324335c77eba?w=300&q=80&auto=format&fit=crop" },
+  { id: "p12", name: "كريم حماية حفاضات الأطفال", category: "الأم والطفل", price: 1800, badge: "الأكثر مبيعًا", image: "https://images.unsplash.com/photo-1584839404042-8bcf0f1b0d4b?w=300&q=80&auto=format&fit=crop" },
+  { id: "p13", name: "مكمل أوميغا 3 — 60 كبسولة", category: "الفيتامينات", price: 3600, badge: "جديد", image: "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=300&q=80&auto=format&fit=crop" },
+  { id: "p14", name: "مولتي فيتامين للبالغين", category: "الفيتامينات", price: 4100, image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&q=80&auto=format&fit=crop" },
+  { id: "p15", name: "جهاز قياس ضغط الدم الرقمي", category: "المستلزمات الطبية", price: 12500, badge: "الأكثر مبيعًا", image: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=300&q=80&auto=format&fit=crop" },
+  { id: "p16", name: "كمامات طبية — 50 قطعة", category: "المستلزمات الطبية", price: 1500, image: "https://images.unsplash.com/photo-1584634731339-252c581abfc5?w=300&q=80&auto=format&fit=crop" },
+  { id: "p17", name: "غسول فم بالنعناع 500 مل", category: "العناية الشخصية", price: 1700, image: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=300&q=80&auto=format&fit=crop" },
+  { id: "p18", name: "مزيل عرق طبي للبشرة الحساسة", category: "العناية الشخصية", price: 2100, badge: "خصم", image: "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=300&q=80&auto=format&fit=crop" },
 ] as const
 
 export const NEWEST: Pick<Product, "id" | "name" | "price" | "image">[] = [
